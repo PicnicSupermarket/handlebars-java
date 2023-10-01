@@ -110,9 +110,10 @@ abstract class BaseTemplate implements Template {
 
   @Override
   public String apply(final Context context) throws IOException {
-    FastStringWriter writer = new FastStringWriter();
-    apply(context, writer);
-    return writer.toString();
+    return Writers.withWriter(writer -> {
+      apply(context, writer);
+      return writer.toString();
+    });
   }
 
   @Override

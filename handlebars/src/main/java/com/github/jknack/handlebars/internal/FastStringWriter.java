@@ -109,4 +109,7 @@ class FastStringWriter extends Writer {
     return buffer.toString();
   }
 
+  public void reset() {
+    buffer.setLength(0);
+  }
 }
