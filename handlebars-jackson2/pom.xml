@@ -14,6 +14,13 @@
   <name>A Jackson 2.x helper</name>
   <description>A JSON Helper base on Jackson2</description>
 
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
   <dependencies>
     <dependency>
       <groupId>com.github.jknack</groupId>

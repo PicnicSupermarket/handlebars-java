@@ -13,6 +13,13 @@
 
   <name>A standalone Handlebars Server</name>
 
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
   <properties>
     <jetty-version>9.4.44.v20210927</jetty-version>
   </properties>
