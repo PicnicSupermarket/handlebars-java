@@ -17,9 +17,6 @@
  */
 package com.github.jknack.handlebars.internal;
 
-import org.apache.commons.text.TextStringBuilder;
-
-import java.io.IOException;
 import java.io.Writer;
 
 /**
@@ -42,50 +39,48 @@ class FastStringWriter extends Writer {
   /**
    * The internal buffer.
    */
-  private TextStringBuilder buffer = new TextStringBuilder(BUFFER_SIZE);
+  private final StringBuilder buffer = new StringBuilder(BUFFER_SIZE);
 
   @Override
-  public Writer append(final char c) throws IOException {
+  public Writer append(final char c) {
     buffer.append(c);
     return this;
   }
 
   @Override
-  public Writer append(final CharSequence csq) throws IOException {
+  public Writer append(final CharSequence csq) {
     buffer.append(csq);
     return this;
   }
 
   @Override
-  public Writer append(final CharSequence csq, final int start, final int end) throws IOException {
+  public Writer append(final CharSequence csq, final int start, final int end) {
     buffer.append(csq, start, end);
     return this;
   }
 
   @Override
-  public void write(final char[] buffer) throws IOException {
+  public void write(final char[] buffer) {
     this.buffer.append(buffer);
   }
 
   @Override
-  public void write(final int c) throws IOException {
+  public void write(final int c) {
     this.buffer.append((char) c);
   }
 
   @Override
-  public void write(final String str) throws IOException {
+  public void write(final String str) {
     this.buffer.append(str);
   }
 
   @Override
-  public void write(final String str, final int off, final int len)
-      throws IOException {
-    buffer.append(str, off, len);
+  public void write(final String str, final int off, final int len) {
+    buffer.append(str, off, off + len);
   }
 
   @Override
-  public void write(final char[] buffer, final int off, final int len)
-      throws IOException {
+  public void write(final char[] buffer, final int off, final int len) {
     if (off < 0 || off > buffer.length || len < 0
         || off + len > buffer.length || off + len < 0) {
       throw new IndexOutOfBoundsException();
@@ -96,12 +91,11 @@ class FastStringWriter extends Writer {
   }
 
   @Override
-  public void flush() throws IOException {
+  public void flush() {
   }
 
   @Override
-  public void close() throws IOException {
-    buffer = null;
+  public void close() {
   }
 
   @Override
